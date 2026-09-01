@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>李金声 · 个人简介</title>
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👋</text></svg>">
+  <style>
+    /* ==================== 主题变量 ==================== */
+    :root {
+      --accent: #ff6700;
+      --accent-2: #2f7bff;
+      --accent-green: #1fa65a;
+      --bg: #faf7f4;
+      --bg-soft: #fff;
+      --text: #333;
+      --text2: #6b6b6b;
+      --text3: #a5a5a5;
+      --line: #eee6df;
+      --shadow: 0 10px 30px rgba(31, 26, 20, .08);
+      --hero-grad: radial-gradient(60% 60% at 15% 20%, rgba(255, 103, 0, .12), transparent 60%),
+        radial-gradient(50% 50% at 85% 75%, rgba(47, 123, 255, .10), transparent 60%);
+    }
+
+    html[data-theme="dark"] {
+      --bg: #17181b;
+      --bg-soft: #202226;
+      --text: #e9e7e3;
+      --text2: #a8a8a8;
+      --text3: #6d6d6d;
+      --line: #2c2e33;
+      --shadow: 0 10px 30px rgba(0, 0, 0, .35);
+      --hero-grad: radial-gradient(60% 60% at 15% 20%, rgba(255, 103, 0, .10), transparent 60%),
+        radial-gradient(50% 50% at 85% 75%, rgba(47, 123, 255, .08), transparent 60%);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.7;
+      transition: background .4s, color .4s;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit
+    }
+
+    img {
+      display: block
+    }
+
+    .container {
+      width: 1080px;
+      margin: 0 auto;
+      padding: 0 20px
+    }
+
+    ::selection {
+      background: rgba(255, 103, 0, .25)
+    }
+
+    /* ==================== 顶部导航 ==================== */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: color-mix(in srgb, var(--bg-soft) 82%, transparent);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+      transition: box-shadow .3s;
+    }
+
+    .nav.scrolled {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, .07)
+    }
+
+    .nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 62px
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 17px;
+      letter-spacing: .5px
+    }
+
+    .nav-logo .dot {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #ff9a3d, #ff6700);
+      color: #fff;
+      font-size: 16px;
+      box-shadow: 0 4px 10px rgba(255, 103, 0, .3);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 4px
+    }
+
+    .nav-links a {
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-size: 14px;
+      color: var(--text2);
+      transition: all .2s;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+      background: rgba(255, 103, 0, .08)
+    }
+
+    #themeBtn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      background: var(--bg-soft);
+      cursor: pointer;
+      font-size: 17px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all .3s;
+    }
+
+    #themeBtn:hover {
+      transform: rotate(30deg) scale(1.08);
+      border-color: var(--accent)
+    }
+
+    /* ==================== Hero ==================== */
+    .hero {
+      position: relative;
+      padding: 72px 0 60px;
+      background: var(--hero-grad)
+    }
+
+    .hero .container {
+      display: flex;
+      align-items: center;
+      gap: 60px
+    }
+
+    .avatar-wrap {
+      position: relative;
+      flex-shrink: 0
+    }
+
+    .avatar-ring {
+      width: 230px;
+      height: 230px;
+      border-radius: 50%;
+      padding: 6px;
+      background: conic-gradient(from 0deg, #ff6700, #ffb46b, #2f7bff, #6ee7a0, #ff6700);
+      animation: spin 9s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg)
+      }
+    }
+
+    .avatar-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 5px solid var(--bg-soft);
+    }
+
+    .avatar-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%
+    }
+
+    .float-chip {
+      position: absolute;
+      background: var(--bg-soft);
+      border: 1px solid var(--line);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      white-space: nowrap;
+      box-shadow: var(--shadow);
+      animation: float 3.4s ease-in-out infinite;
+    }
+
+    .float-chip.c1 {
+      top: 6px;
+      right: -46px;
+      animation-delay: .2s
+    }
+
+    .float-chip.c2 {
+      bottom: 16px;
+      left: -52px;
+      animation-delay: 1s
+    }
+
+    .float-chip.c3 {
+      bottom: -16px;
+      right: -30px;
+      animation-delay: 1.8s
+    }
+
+    @keyframes float {
+      50% {
+        transform: translateY(-9px)
+      }
+    }
+
+    .hero-text {
+      flex: 1;
+      min-width: 0
+    }
+
+    .hello {
+      font-size: 15px;
+      color: var(--accent);
+      font-weight: 700;
+      letter-spacing: 2px
+    }
+
+    .type-line {
+      font-size: clamp(30px, 4.5vw, 46px);
+      font-weight: 800;
+      line-height: 1.3;
+      margin: 10px 0 6px;
+      min-height: 1.3em;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 3px;
+      height: .95em;
+      background: var(--accent);
+      vertical-align: -.12em;
+      margin-left: 4px;
+      animation: blink 1s steps(1) infinite
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: 0
+      }
+    }
+
+    .hero-sub {
+      color: var(--text2);
+      font-size: 15px;
+      max-width: 520px
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 22px
+    }
+
+    .badge {
+      padding: 7px 15px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      background: var(--bg-soft);
+      border: 1px solid var(--line);
+      transition: all .25s;
+      cursor: default;
+    }
+
+    .badge:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+      color: var(--accent);
+      box-shadow: var(--shadow)
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 14px;
+      margin-top: 30px
+    }
+
+    .btn {
+      padding: 12px 30px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all .25s;
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #ff9a3d, #ff6700);
+      color: #fff;
+      box-shadow: 0 8px 20px rgba(255, 103, 0, .35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 26px rgba(255, 103, 0, .45)
+    }
+
+    .btn-ghost {
+      background: var(--bg-soft);
+      color: var(--text);
+      border: 1.5px solid var(--line)
+    }
+
+    .btn-ghost:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+      color: var(--accent)
+    }
+
+    /* ==================== 数据条 ==================== */
+    .stats {
+      background: var(--bg-soft);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      padding: 30px 10px;
+      margin-top: -34px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .stats .row {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 20px
+    }
+
+    .stat {
+      text-align: center;
+      flex: 1;
+      min-width: 140px
+    }
+
+    .stat-num {
+      font-size: 34px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #ff9a3d, #ff6700);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: var(--text3);
+      margin-top: 2px
+    }
+
+    /* ==================== 通用区块 ==================== */
+    .section {
+      padding: 64px 0
+    }
+
+    .sec-head {
+      text-align: center;
+      margin-bottom: 44px
+    }
+
+    .sec-tag {
+      display: inline-block;
+      font-size: 12px;
+      letter-spacing: 3px;
+      color: var(--accent);
+      font-weight: 700;
+      padding: 5px 16px;
+      border-radius: 999px;
+      background: rgba(255, 103, 0, .08);
+      margin-bottom: 12px;
+    }
+
+    .sec-title {
+      font-size: clamp(24px, 3.4vw, 32px);
+      font-weight: 800
+    }
+
+    .sec-title .hl {
+      color: var(--accent)
+    }
+
+    /* ==================== 关于我 ==================== */
+    .about-card {
+      background: var(--bg-soft);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      padding: 42px;
+      display: flex;
+      gap: 44px;
+      align-items: flex-start;
+    }
+
+    .about-text {
+      flex: 1.3;
+      min-width: 0
+    }
+
+    .about-text p {
+      color: var(--text2);
+      margin-bottom: 14px;
+      text-align: justify
+    }
+
+    .about-text p b {
+      color: var(--text)
+    }
+
+    .about-text .sign {
+      font-family: "Segoe Script", "KaiTi", "STKaiti", cursive;
+      font-size: 24px;
+      color: var(--accent);
+      margin-top: 18px;
+      transform: rotate(-4deg);
+      display: inline-block;
+    }
+
+    .info-grid {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px
+    }
+
+    .info-cell {
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px 14px;
+      transition: all .25s;
+    }
+
+    .info-cell:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+      border-color: var(--accent)
+    }
+
+    .info-cell .k {
+      font-size: 11px;
+      color: var(--text3);
+      letter-spacing: 1px;
+      margin-bottom: 4px
+    }
+
+    .info-cell .v {
+      font-size: 14px;
+      font-weight: 700
+    }
+
+    .info-cell .v small {
+      font-weight: 400;
+      color: var(--text3);
+      font-size: 12px;
+      margin-left: 4px
+    }
+
+    /* ==================== 技能 ==================== */
+    .skills-wrap {
+      background: var(--bg-soft);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      padding: 42px;
+      display: flex;
+      gap: 48px;
+      align-items: flex-start;
+    }
+
+    .skill-bars {
+      flex: 1.4;
+      min-width: 0
+    }
+
+    .skill {
+      margin-bottom: 20px
+    }
+
+    .skill .top {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 8px
+    }
+
+    .skill .top .pct {
+      color: var(--accent);
+      font-weight: 800
+    }
+
+    .bar {
+      height: 9px;
+      background: var(--bg);
+      border-radius: 99px;
+      overflow: hidden
+    }
+
+    .bar i {
+      display: block;
+      height: 100%;
+      width: 0;
+      border-radius: 99px;
+      background: linear-gradient(90deg, #ffb46b, #ff6700);
+      transition: width 1.2s cubic-bezier(.25, .8, .3, 1);
+    }
+
+    .skill:nth-child(even) .bar i {
+      background: linear-gradient(90deg, #7cb3ff, #2f7bff)
+    }
+
+    .skill:nth-child(3n) .bar i {
+      background: linear-gradient(90deg, #8ee7b0, #1fa65a)
+    }
+
+    .tag-cloud {
+      flex: 1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-content: flex-start
+    }
+
+    .cloud-tag {
+      padding: 9px 18px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      transition: all .25s;
+      cursor: default;
+    }
+
+    .cloud-tag:hover {
+      transform: translateY(-3px) rotate(-3deg);
+      color: #fff;
+      background: linear-gradient(135deg, #ff9a3d, #ff6700);
+      border-color: transparent;
+      box-shadow: 0 8px 16px rgba(255, 103, 0, .3);
+    }
+
+    /* ==================== 足迹时间线 ==================== */
+    .timeline {
+      position: relative;
+      max-width: 680px;
+      margin: 0 auto;
+      padding-left: 34px
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 10px;
+      top: 6px;
+      bottom: 6px;
+      width: 3px;
+      border-radius: 2px;
+      background: linear-gradient(180deg, #ffb46b, #ff6700, #2f7bff);
+    }
+
+    .tl-item {
+      position: relative;
+      padding-bottom: 34px
+    }
+
+    .tl-item:last-child {
+      padding-bottom: 0
+    }
+
+    .tl-item::before {
+      content: "";
+      position: absolute;
+      left: -31px;
+      top: 8px;
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: var(--bg-soft);
+      border: 3px solid var(--accent);
+      box-shadow: 0 0 0 4px rgba(255, 103, 0, .15);
+    }
+
+    .tl-item:nth-child(even)::before {
+      border-color: var(--accent-2);
+      box-shadow: 0 0 0 4px rgba(47, 123, 255, .15)
+    }
+
+    .tl-time {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--accent);
+      letter-spacing: 1px
+    }
+
+    .tl-item:nth-child(even) .tl-time {
+      color: var(--accent-2)
+    }
+
+    .tl-card {
+      margin-top: 6px;
+      background: var(--bg-soft);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 18px 22px;
+      box-shadow: var(--shadow);
+      transition: all .3s;
+    }
+
+    .tl-card:hover {
+      transform: translateX(8px);
+      border-color: var(--accent)
+    }
+
+    .tl-card h4 {
+      font-size: 15px;
+      margin-bottom: 4px
+    }
+
+    .tl-card p {
+      font-size: 13px;
+      color: var(--text2)
+    }
+
+    /* ==================== 爱好 ==================== */
+    .hobby-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px
+    }
+
+    .hobby {
+      background: var(--bg-soft);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 28px 20px;
+      text-align: center;
+      transition: all .3s;
+      cursor: default;
+    }
+
+    .hobby:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow);
+      border-color: var(--accent)
+    }
+
+    .hobby .emoji {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      margin: 0 auto 14px;
+      font-size: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #fff1e6, #ffe3cd);
+      transition: transform .4s;
+    }
+
+    html[data-theme="dark"] .hobby .emoji {
+      background: linear-gradient(135deg, #33291f, #3d2c1c)
+    }
+
+    .hobby:hover .emoji {
+      transform: scale(1.15) rotate(-8deg)
+    }
+
+    .hobby h4 {
+      font-size: 15px;
+      margin-bottom: 4px
+    }
+
+    .hobby p {
+      font-size: 12.5px;
+      color: var(--text3)
+    }
+
+    /* ==================== 座右铭 ==================== */
+    .quote {
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 56px 40px;
+      background: var(--bg-soft);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .quote::before {
+      content: "❝";
+      position: absolute;
+      top: -28px;
+      left: 22px;
+      font-size: 130px;
+      color: rgba(255, 103, 0, .08);
+    }
+
+    .quote p {
+      font-size: clamp(18px, 2.6vw, 23px);
+      font-weight: 700;
+      line-height: 1.8;
+      position: relative
+    }
+
+    .quote .who {
+      margin-top: 18px;
+      font-size: 13px;
+      color: var(--text3);
+      letter-spacing: 2px
+    }
+
+    /* ==================== 联系 ==================== */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px
+    }
+
+    .contact-card {
+      background: var(--bg-soft);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 30px 20px;
+      text-align: center;
+      transition: all .3s;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow)
+    }
+
+    .contact-card .ico {
+      font-size: 30px;
+      margin-bottom: 12px;
+      display: inline-block;
+      transition: transform .3s
+    }
+
+    .contact-card:hover .ico {
+      transform: scale(1.2) rotate(-6deg)
+    }
+
+    .contact-card h4 {
+      font-size: 15px;
+      margin-bottom: 6px
+    }
+
+    .contact-card p {
+      font-size: 13px;
+      color: var(--text2);
+      word-break: break-all
+    }
+
+    /* ==================== 页脚 ==================== */
+    .footer {
+      border-top: 1px solid var(--line);
+      padding: 30px 0;
+      text-align: center;
+      font-size: 12.5px;
+      color: var(--text3);
+    }
+
+    .footer .heart {
+      color: var(--accent);
+      display: inline-block;
+      animation: beat 1.2s ease-in-out infinite
+    }
+
+    @keyframes beat {
+      30% {
+        transform: scale(1.3)
+      }
+    }
+
+    .footer p {
+      margin-top: 6px
+    }
+
+    /* ==================== 回到顶部 ==================== */
+    #toTop {
+      position: fixed;
+      right: 26px;
+      bottom: 84px;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--bg-soft);
+      color: var(--text2);
+      border: 1px solid var(--line);
+      font-size: 18px;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      z-index: 200;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(12px);
+      transition: all .3s;
+    }
+
+    #toTop.show {
+      opacity: 1;
+      visibility: visible;
+      transform: none
+    }
+
+    #toTop:hover {
+      color: #fff;
+      background: var(--accent);
+      border-color: var(--accent)
+    }
+
+    /* ==================== 入场动画 ==================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .65s ease, transform .65s ease
+    }
+
+    .reveal.in {
+      opacity: 1;
+      transform: none
+    }
+
+    /* ==================== 响应式 ==================== */
+    @media (max-width:900px) {
+      .container {
+        width: 100%
+      }
+
+      .hero .container {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px
+      }
+
+      .hero-sub {
+        margin: 0 auto
+      }
+
+      .badges,
+      .hero-cta {
+        justify-content: center
+      }
+
+      .float-chip.c1 {
+        right: -8px
+      }
+
+      .float-chip.c2 {
+        left: -8px
+      }
+
+      .about-card,
+      .skills-wrap {
+        flex-direction: column;
+        padding: 30px 24px
+      }
+
+      .info-grid {
+        width: 100%
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr
+      }
+
+      .nav-links {
+        display: none
+      }
+    }
+
+    @media (max-width:560px) {
+      .hobby-grid {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .stats .row {
+        gap: 26px
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ═══════════ 顶部导航 ═══════════ -->
+  <nav class="nav" id="nav">
+    <div class="container">
+      <a class="nav-logo" href="#top"><span class="dot">声</span>李金声 <span
+          style="font-weight:400;color:var(--text3);font-size:12px">· 个人简介</span></a>
+      <div class="nav-links">
+        <a href="#about">关于我</a>
+        <a href="#skills">技能</a>
+        <a href="#journey">足迹</a>
+        <a href="#hobbies">爱好</a>
+        <a href="#contact">联系</a>
+      </div>
+      <button id="themeBtn" title="切换深浅色">🌙</button>
+    </div>
+  </nav>
+
+  <!-- ═══════════ Hero ═══════════ -->
+  <header class="hero" id="top">
+    <div class="container">
+      <div class="avatar-wrap">
+        <div class="avatar-ring">
+          <div class="avatar-inner"><img src="profile/avatar.jpg" alt="李金声的照片"></div>
+        </div>
+        <span class="float-chip c1">🌶️ 四川人</span>
+        <span class="float-chip c2">💻 前端学习者</span>
+        <span class="float-chip c3">🏠 翻斗花园</span>
+      </div>
+      <div class="hero-text">
+        <div class="hello">HELLO, WORLD 👋</div>
+        <h1 class="type-line"><span id="typeText"></span><span class="cursor"></span></h1>
+        <p class="hero-sub">
+          北京印刷学院信息工程学院 25 级计科一班在读，一个用 HTML、CSS 和 JavaScript
+          把想法变成页面的计算机新人，正在代码的世界里慢慢长大。
+        </p>
+        <div class="badges">
+          <span class="badge">🌶️ 四川人</span>
+          <span class="badge">🏠 现居翻斗花园</span>
+          <span class="badge">🎓 北京印刷学院</span>
+          <span class="badge">💻 信息工程学院</span>
+          <span class="badge">🧑‍🎓 25级计科一班</span>
+        </div>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#about">了解我 ↓</a>
+          <a class="btn btn-ghost" href="#contact">联系我 📮</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- ═══════════ 数据条 ═══════════ -->
+    <div class="stats reveal">
+      <div class="row">
+        <div class="stat">
+          <div class="stat-num"><span class="num" data-target="3">0</span></div>
+          <div class="stat-label">核心技术栈</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num"><span class="num" data-target="10">0</span>+</div>
+          <div class="stat-label">练习项目</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num"><span class="num" data-target="1">0</span>年+</div>
+          <div class="stat-label">前端学习</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num"><span class="num" data-target="100">0</span>%</div>
+          <div class="stat-label">好奇心驱动</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════ 关于我 ═══════════ -->
+    <section class="section" id="about">
+      <div class="sec-head reveal">
+        <span class="sec-tag">ABOUT ME</span>
+        <h2 class="sec-title">关于<span class="hl">我</span></h2>
+      </div>
+      <div class="about-card reveal">
+        <div class="about-text">
+          <p>
+            你好！我是<b>李金声</b>，一个土生土长的<b>四川人</b>，现在住在热闹又可爱的<b>翻斗花园</b>。
+            2025 年，我考入了<b>北京印刷学院</b>，成为<b>信息工程学院 25 级计科一班</b>的一名学生，
+            正式踏上了用代码描绘世界的旅程。
+          </p>
+          <p>
+            我痴迷于前端开发——喜欢把脑海里的想法变成浏览器里「看得见、摸得着」的页面：
+            从仿小米商城的商品页，到带轮播和交互的个人作品集，每一行代码都写得很认真。
+            相信<b>技术栈只用最纯粹的原生 HTML + CSS + JS</b>，也能做出有质感的东西。
+          </p>
+          <p>
+            课余时间我喜欢打篮球、骑车逛北京的大街小巷、拍照记录生活。来自火锅之都，
+            <b>火锅是我的本命</b>🍲。如果你也爱代码爱火锅，欢迎随时找我交流！
+          </p>
+          <span class="sign">—— 李金声</span>
+        </div>
+        <div class="info-grid">
+          <div class="info-cell">
+            <div class="k">姓名</div>
+            <div class="v">李金声</div>
+          </div>
+          <div class="info-cell">
+            <div class="k">籍贯</div>
+            <div class="v">四川 🌶️</div>
+          </div>
+          <div class="info-cell">
+            <div class="k">现居</div>
+            <div class="v">翻斗花园<small>（图图同款小区😄）</small></div>
+          </div>
+          <div class="info-cell">
+            <div class="k">学校</div>
+            <div class="v">北京印刷学院</div>
+          </div>
+          <div class="info-cell">
+            <div class="k">学院</div>
+            <div class="v">信息工程学院</div>
+          </div>
+          <div class="info-cell">
+            <div class="k">班级</div>
+            <div class="v">25级计科一班</div>
+          </div>
+          <div class="info-cell">
+            <div class="k">方向</div>
+            <div class="v">前端开发</div>
+          </div>
+          <div class="info-cell">
+            <div class="k">状态</div>
+            <div class="v">学习中 · 待机变强 🚀</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ 技能 ═══════════ -->
+    <section class="section" id="skills">
+      <div class="sec-head reveal">
+        <span class="sec-tag">SKILLS</span>
+        <h2 class="sec-title">技能<span class="hl">栈</span></h2>
+      </div>
+      <div class="skills-wrap reveal">
+        <div class="skill-bars">
+          <div class="skill">
+            <div class="top"><span>HTML5 · 语义化布局</span><span class="pct">85%</span></div>
+            <div class="bar"><i data-w="85"></i></div>
+          </div>
+          <div class="skill">
+            <div class="top"><span>CSS3 · 动画与响应式</span><span class="pct">80%</span></div>
+            <div class="bar"><i data-w="80"></i></div>
+          </div>
+          <div class="skill">
+            <div class="top"><span>JavaScript · 原生交互</span><span class="pct">65%</span></div>
+            <div class="bar"><i data-w="65"></i></div>
+          </div>
+          <div class="skill">
+            <div class="top"><span>Git · 版本管理</span><span class="pct">55%</span></div>
+            <div class="bar"><i data-w="55"></i></div>
+          </div>
+          <div class="skill">
+            <div class="top"><span>审美 · 页面质感</span><span class="pct">75%</span></div>
+            <div class="bar"><i data-w="75"></i></div>
+          </div>
+        </div>
+        <div class="tag-cloud">
+          <span class="cloud-tag"># 响应式设计</span>
+          <span class="cloud-tag"># 轮播图</span>
+          <span class="cloud-tag"># 打字机效果</span>
+          <span class="cloud-tag"># 深浅色主题</span>
+          <span class="cloud-tag"># 视差滚动</span>
+          <span class="cloud-tag"># localStorage</span>
+          <span class="cloud-tag"># 仿站练习</span>
+          <span class="cloud-tag"># 手写布局</span>
+          <span class="cloud-tag"># 交互动效</span>
+          <span class="cloud-tag"># 学习中…</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ 足迹 ═══════════ -->
+    <section class="section" id="journey">
+      <div class="sec-head reveal">
+        <span class="sec-tag">JOURNEY</span>
+        <h2 class="sec-title">成长<span class="hl">足迹</span></h2>
+      </div>
+      <div class="timeline reveal">
+        <div class="tl-item">
+          <div class="tl-time">2007 · 起点</div>
+          <div class="tl-card">
+            <h4>🌶️ 出生在四川</h4>
+            <p>火锅之都长大的孩子，骨子里自带热情、乐观和一点「麻辣」的韧劲。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">2025 · 北漂求学</div>
+          <div class="tl-card">
+            <h4>🎓 考入北京印刷学院</h4>
+            <p>信息工程学院 · 25级计科一班。从西南到北京，从书本到机房，开启代码之旅。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">2025 · 第一个网页</div>
+          <div class="tl-card">
+            <h4>💻 Hello World → 第一个页面</h4>
+            <p>敲下第一行 HTML，点亮第一个带样式的页面，从此一发不可收拾。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">2026 · 现在</div>
+          <div class="tl-card">
+            <h4>🚀 深耕前端开发</h4>
+            <p>用原生 HTML + CSS + JS 持续输出作品：仿小米商城、作品集、个人简介……下一个作品在路上。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ 爱好 ═══════════ -->
+    <section class="section" id="hobbies">
+      <div class="sec-head reveal">
+        <span class="sec-tag">HOBBIES</span>
+        <h2 class="sec-title">生活<span class="hl">爱好</span></h2>
+      </div>
+      <div class="hobby-grid">
+        <div class="hobby reveal">
+          <div class="emoji">💻</div>
+          <h4>写代码</h4>
+          <p>把想法变成页面，最上头的游戏</p>
+        </div>
+        <div class="hobby reveal" style="transition-delay:.06s">
+          <div class="emoji">🏀</div>
+          <h4>打篮球</h4>
+          <p>球场上的汗水最解压</p>
+        </div>
+        <div class="hobby reveal" style="transition-delay:.12s">
+          <div class="emoji">🚴</div>
+          <h4>骑行</h4>
+          <p>骑车逛北京的大街小巷</p>
+        </div>
+        <div class="hobby reveal" style="transition-delay:.06s">
+          <div class="emoji">📷</div>
+          <h4>摄影</h4>
+          <p>用镜头收藏生活中的光</p>
+        </div>
+        <div class="hobby reveal" style="transition-delay:.12s">
+          <div class="emoji">🍲</div>
+          <h4>吃火锅</h4>
+          <p>四川人认证 · 本命食物</p>
+        </div>
+        <div class="hobby reveal" style="transition-delay:.18s">
+          <div class="emoji">🎧</div>
+          <h4>听音乐</h4>
+          <p>写代码的 BGM 不能停</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ 座右铭 ═══════════ -->
+    <div class="quote reveal">
+      <p>代码会说话，用心写下的每一行，<br>都是我的自我介绍。</p>
+      <div class="who">—— 李金声 · 2026</div>
+    </div>
+
+    <!-- ═══════════ 联系 ═══════════ -->
+    <section class="section" id="contact">
+      <div class="sec-head reveal">
+        <span class="sec-tag">CONTACT</span>
+        <h2 class="sec-title">联系<span class="hl">我</span></h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-card reveal">
+          <span class="ico">📮</span>
+          <h4>邮箱</h4>
+          <p>ljs2025@bigc.edu.cn<small style="color:var(--text3)">（演示）</small></p>
+        </div>
+        <div class="contact-card reveal" style="transition-delay:.06s">
+          <span class="ico">💬</span>
+          <h4>微信</h4>
+          <p>LiJinSheng_CD<small style="color:var(--text3)">（演示）</small></p>
+        </div>
+        <div class="contact-card reveal" style="transition-delay:.12s">
+          <span class="ico">📍</span>
+          <h4>地址</h4>
+          <p>北京市 · 翻斗花园 🏠</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ═══════════ 页脚 ═══════════ -->
+  <footer class="footer">
+    <p>© 2026 李金声 · 本页面由原生 HTML + CSS + JS 手写，无框架无后端</p>
+    <p>Made with <span class="heart">❤</span> in 翻斗花园 · 仅作学习演示</p>
+  </footer>
+
+  <button id="toTop" title="回到顶部">↑</button>
+
+  <script>
+    (function () {
+      "use strict";
+      var $ = function (s) { return document.querySelector(s); };
+      var $$ = function (s) { return document.querySelectorAll(s); };
+
+      /* ---------- 深浅色主题 ---------- */
+      var themeBtn = $("#themeBtn");
+      function applyTheme(t) {
+        document.documentElement.setAttribute("data-theme", t);
+        themeBtn.textContent = t === "dark" ? "☀️" : "🌙";
+      }
+      applyTheme(localStorage.getItem("ljs-theme") || "light");
+      themeBtn.addEventListener("click", function () {
+        var next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+        applyTheme(next);
+        localStorage.setItem("ljs-theme", next);
+      });
+
+      /* ---------- 打字机 ---------- */
+      var lines = ["你好，我是李金声 👋", "一个热爱前端的计科新生", "在代码的世界里慢慢长大", "欢迎来到我的个人简介页"];
+      var li = 0, ci = 0, deleting = false;
+      function type() {
+        var cur = lines[li];
+        ci += deleting ? -1 : 1;
+        $("#typeText").textContent = cur.slice(0, ci);
+        var delay = deleting ? 45 : 110;
+        if (!deleting && ci === cur.length) { delay = 1900; deleting = true; }
+        else if (deleting && ci === 0) { deleting = false; li = (li + 1) % lines.length; delay = 350; }
+        setTimeout(type, delay);
+      }
+      type();
+
+      /* ---------- 数字滚动 & 技能条 ---------- */
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (!en.isIntersecting) return;
+          io.unobserve(en.target);
+          en.target.querySelectorAll(".num").forEach(function (n) {
+            var target = +n.dataset.target, t0 = null;
+            function step(ts) {
+              if (!t0) t0 = ts;
+              var p = Math.min((ts - t0) / 1200, 1);
+              n.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
+              if (p < 1) requestAnimationFrame(step);
+            }
+            requestAnimationFrame(step);
+          });
+          en.target.querySelectorAll(".bar i").forEach(function (b) {
+            b.style.width = b.dataset.w + "%";
+          });
+        });
+      }, { threshold: 0.25 });
+      [".stats", ".skills-wrap"].forEach(function (sel) {
+        var el = $(sel); if (el) io.observe(el);
+      });
+
+      /* ---------- 入场动画 ---------- */
+      var io2 = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) { en.target.classList.add("in"); io2.unobserve(en.target); }
+        });
+      }, { threshold: 0.1 });
+      $$(".reveal").forEach(function (el) { io2.observe(el); });
+
+      /* ---------- 导航阴影 & 回到顶部 ---------- */
+      var nav = $("#nav"), toTop = $("#toTop");
+      window.addEventListener("scroll", function () {
+        nav.classList.toggle("scrolled", window.scrollY > 10);
+        toTop.classList.toggle("show", window.scrollY > 500);
+      });
+      toTop.addEventListener("click", function () { window.scrollTo({ top: 0, behavior: "smooth" }); });
+    })();
+  </script>
+</body>
+
+</html>
